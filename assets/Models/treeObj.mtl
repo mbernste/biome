@@ -1,0 +1,12 @@
+newmtl treeObj:lambert6SG
+illum 4
+Kd 0.34 0.16 0.13
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl treeObj:lambert7SG
+illum 4
+Kd 0.00 0.38 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
