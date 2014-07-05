@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+<bean id="applicationProvider" class="biome.application.Common" />
+    
+<bean id="theOrganismViewData" class="biome.view.OrganismViewData" />
+
+<bean id="theState" class="biome.model.core.SimulationState" scope="singleton"/>
+
+<bean id="theEngine" class="biome.controller.core.SimulationEngine" scope="singleton">
+    <constructor-arg  ref="theState" />
+</bean>
+
+<bean id="theView" class="biome.view.View">
+	<property name="simEngine" ref="theEngine"/>
+	<property name="simState" ref="theState"/>
+	<property name="organismViewData" ref="theOrganismViewData"/>
+</bean>
+
+
+
+</beans>

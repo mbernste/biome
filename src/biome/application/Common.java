@@ -1,4 +1,4 @@
-package biome.view;
+package biome.application;
 
 import java.util.Random;
 
@@ -20,7 +20,7 @@ public class Common implements ApplicationContextAware
 	/**
 	 * Spring application context
 	 */
-	private static ApplicationContext beanContext = null;
+	private static ApplicationContext beanContext;
 	
 	/**
      * Time/space settings
@@ -32,13 +32,13 @@ public class Common implements ApplicationContextAware
     /**
 	 * Board dimensions
 	 */
-	public final static int NUM_ROWS = 10;
-	public final static int NUM_COLS = 10; 
+	public final static int NUM_ROWS = 30;
+	public final static int NUM_COLS = 30; 
 	
-	public final static int NUM_TREES = 1;
-	public final static int NUM_PLANTS = 4;
+	public final static int NUM_TREES = 5;
+	public final static int NUM_PLANTS = 30;
 	public final static int NUM_CARNIVORES = 1;
-	public final static int NUM_HERBIVORES = 0;
+	public final static int NUM_HERBIVORES = 5;
 	
 	public static int CARNIVORE_SPEED = 6;
 	public static int CARNIVORE_VISION = 20;
