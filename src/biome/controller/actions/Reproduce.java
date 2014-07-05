@@ -1,14 +1,11 @@
 package biome.controller.actions;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
-import pair.Pair;
 import biome.application.Common;
 import biome.model.board.Board;
 import biome.model.organisms.Organism;
-import biome.view.OrganismView;
 
 public class Reproduce extends Action
 {

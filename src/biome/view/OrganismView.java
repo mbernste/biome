@@ -1,15 +1,14 @@
 package biome.view;
 
+import com.jme3.asset.AssetManager;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.FastMath;
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.queue.RenderQueue.ShadowMode;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
 
 import biome.application.Common;
 import biome.model.organismattributes.Diet;
@@ -37,8 +36,15 @@ public class OrganismView
 	
 	Node node;
 	
+	/**
+	 * The view singleton
+	 */
+	View theView;
+	
 	public OrganismView(Organism org)
 	{
+		theView = (View) Common.BEAN_CONTEXT.getBean("theView");
+		
 		if (org instanceof Animal)
 		{
 			yOffSet = -0.5f;
@@ -100,6 +106,8 @@ public class OrganismView
 	
 	public Node generateNode(Organism org)
 	{
+		AssetManager assetManager = theView.getAssetManager();
+		
 		Node node = new Node(org.toString());
 		
 		if (org instanceof Plant)
@@ -111,18 +119,16 @@ public class OrganismView
 			if (Common.RAND.nextBoolean()) xOffSet = -xOffSet;
 			if (Common.RAND.nextBoolean()) zOffSet = -zOffSet;
 			
-			Spatial plant = Common.ASSET_MANAGER.loadModel("Models/plant.obj");
-			Spatial fruit = Common.ASSET_MANAGER.loadModel("Models/fruit.obj");
+			Spatial plant = assetManager.loadModel("Models/plant.obj");
+			Spatial fruit = assetManager.loadModel("Models/fruit.obj");
 			
 			float scaleAmount = 1.5f + Common.RAND.nextFloat();
 		
-			Material fruitMat = new Material(Common.ASSET_MANAGER, Common.UNSHADED);
-			fruitMat.setTexture("ColorMap", 
-					Common.ASSET_MANAGER.loadTexture("Textures/fruit.jpg")); 
+			Material fruitMat = new Material(assetManager, Common.UNSHADED);
+			fruitMat.setTexture("ColorMap", assetManager.loadTexture("Textures/fruit.jpg")); 
 			
-			Material plantMat = new Material(Common.ASSET_MANAGER, Common.UNSHADED);
-			plantMat.setTexture("ColorMap", 
-					Common.ASSET_MANAGER.loadTexture("Textures/lilyTexture.png")); 
+			Material plantMat = new Material(assetManager, Common.UNSHADED);
+			plantMat.setTexture("ColorMap", assetManager.loadTexture("Textures/lilyTexture.png")); 
 			
 			fruit.setMaterial(fruitMat);
 			plant.setMaterial(plantMat);
@@ -143,18 +149,18 @@ public class OrganismView
 		{
 			if (Common.RAND.nextBoolean())
 			{
-				Spatial trunk = Common.ASSET_MANAGER.loadModel("Models/tree3_trunk.obj");
-				Spatial leaves = Common.ASSET_MANAGER.loadModel("Models/tree3_leaves.obj");
+				Spatial trunk = assetManager.loadModel("Models/tree3_trunk.obj");
+				Spatial leaves = assetManager.loadModel("Models/tree3_leaves.obj");
 				
 				float scaleAmount = 1.5f + Common.RAND.nextFloat();
 				
-				Material barkMat = new Material(Common.ASSET_MANAGER, Common.UNSHADED);
+				Material barkMat = new Material(assetManager, Common.UNSHADED);
 				barkMat.setTexture("ColorMap", 
-						Common.ASSET_MANAGER.loadTexture("Textures/bark.png")); 
+						assetManager.loadTexture("Textures/bark.png")); 
 				
-				Material leavesMat = new Material(Common.ASSET_MANAGER, Common.UNSHADED);
+				Material leavesMat = new Material(assetManager, Common.UNSHADED);
 				leavesMat.setTexture("ColorMap", 
-						Common.ASSET_MANAGER.loadTexture("Textures/leaves.jpg")); 
+						assetManager.loadTexture("Textures/leaves.jpg")); 
 				
 			    float randAngle = (Common.RAND.nextFloat() + Common.RAND.nextInt(2)) * FastMath.PI;
 				//trunk.setLocalRotation(new Quaternion().fromAngleAxis(randAngle, Vector3f.UNIT_Y));
@@ -172,7 +178,7 @@ public class OrganismView
 			{
 				yOffSet = 5.0f;
 				
-				Spatial model = Common.ASSET_MANAGER.loadModel("Models/treeObj.obj");
+				Spatial model = assetManager.loadModel("Models/treeObj.obj");
 				float scaleAmount = 1.5f + Common.RAND.nextFloat();
 				
 				model.setLocalScale( scaleAmount, scaleAmount, scaleAmount);
@@ -187,19 +193,19 @@ public class OrganismView
 		{
 			Animal an = (Animal) org;
 			
-			Spatial bodyModel = Common.ASSET_MANAGER.loadModel(BODY);
+			Spatial bodyModel = assetManager.loadModel(BODY);
 			
 			
 			if (an.getDiet().getValue() == Diet.DIET_HERBIVORE)
 			{
-				Material mat = new Material(Common.ASSET_MANAGER,
+				Material mat = new Material(assetManager,
 				          "Common/MatDefs/Misc/Unshaded.j3md");  
 				        mat.setColor("Color", ColorRGBA.Blue);   
 				        bodyModel.setMaterial(mat);                   
 			}
 			else if (an.getDiet().getValue() == Diet.DIET_HERBIVORE)
 			{
-				Material mat = new Material(Common.ASSET_MANAGER,
+				Material mat = new Material(assetManager,
 				          "Common/MatDefs/Misc/Unshaded.j3md");  
 				        mat.setColor("Color", ColorRGBA.Red);   
 				        bodyModel.setMaterial(mat);                   

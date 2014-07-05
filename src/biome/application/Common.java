@@ -55,10 +55,6 @@ public class Common implements ApplicationContextAware
 	 */
 	public final static Random RAND = new Random();
 	
-	/**
-	 * Asset manager
-	 */
-	public static AssetManager ASSET_MANAGER;
 	
 	public final static String UNSHADED = "Common/MatDefs/Misc/Unshaded.j3md";
 	

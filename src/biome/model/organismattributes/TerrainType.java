@@ -4,6 +4,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
 import biome.application.Common;
+import biome.view.View;
 
 public class TerrainType extends Attribute
 {
@@ -37,9 +38,12 @@ public class TerrainType extends Attribute
 		Node node = new Node();
 		Spatial model = null;
 		
+		// TODO REFACTOR
+		View theView = (View) Common.BEAN_CONTEXT.getBean("theView");
+		
 		if (value == WATER)
  		{
-			model = Common.ASSET_MANAGER.loadModel(TENTACLES);
+			model = theView.getAssetManager().loadModel(TENTACLES);
 			model.setLocalScale(Common.SCALE, Common.SCALE, Common.SCALE);
 			node.attachChild(model);
 		}

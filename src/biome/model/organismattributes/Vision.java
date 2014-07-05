@@ -4,6 +4,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
 import biome.application.Common;
+import biome.view.View;
 
 public class Vision extends Attribute 
 {
@@ -38,17 +39,20 @@ public class Vision extends Attribute
 		Node node = new Node();
 		Spatial model = null;
 		
+		// TODO REFACTOR
+		View theView = (View) Common.BEAN_CONTEXT.getBean("theView");
+		
 		if (value < 10)
 		{
-			model = Common.ASSET_MANAGER.loadModel(ONE_EYES);
+			model = theView.getAssetManager().loadModel(ONE_EYES);
 		}
 		else if (value < 15)
 		{
-			model = Common.ASSET_MANAGER.loadModel(TWO_EYES);
+			model = theView.getAssetManager().loadModel(TWO_EYES);
 		}
 		else
 		{
-			model = Common.ASSET_MANAGER.loadModel(THREE_EYES);
+			model = theView.getAssetManager().loadModel(THREE_EYES);
 		}
 		
 		model.setLocalScale(Common.SCALE, Common.SCALE, Common.SCALE);

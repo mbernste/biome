@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import pair.Pair;
 
 import com.jme3.app.SimpleApplication;
-import com.jme3.asset.AssetManager;
 import com.jme3.renderer.RenderManager;
-import com.jme3.renderer.ViewPort;
 import com.jme3.water.SimpleWaterProcessor;
 
 import biome.application.Common;
@@ -76,11 +74,7 @@ public class View extends SimpleApplication
 		
 	@Override
 	public void simpleInitApp() 
-	{    	
-		
-		// TODO REFACTOR
-		Common.ASSET_MANAGER = this.assetManager;
-		
+	{    			
 		ViewInitializer viewInitializer = (ViewInitializer) Common.BEAN_CONTEXT.getBean("theViewInitializer");
 		viewInitializer.init();
 	}
@@ -255,26 +249,12 @@ public class View extends SimpleApplication
 									coord.getSecond() + zOff);   
 	}
 	
-	public AssetManager getAssetManager() 
-	{
-		return this.assetManager;
-	}
-	
-	public Node getRootNode() 
-	{
-		return this.rootNode;
-	}
 	
 	public SimpleWaterProcessor getWaterProcessor()
 	{
 		return this.waterProcessor;
 	}
-	
-	public ViewPort getViewPort()
-	{
-		return this.viewPort;
-	}
-	
+
 	protected void setWaterProcessor(SimpleWaterProcessor waterProcessor)
 	{
 		this.waterProcessor = waterProcessor;
