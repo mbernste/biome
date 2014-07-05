@@ -1,5 +1,5 @@
 import pair.Pair;
-import biome.environment.Board;
+import biome.model.board.Board;
 
 public class Board_Test 
 {

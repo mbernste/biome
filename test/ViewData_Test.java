@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-import biome.view.ViewData;
+import biome.view.OrganismView;
 
 import pair.Pair;
 
