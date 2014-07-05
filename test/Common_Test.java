@@ -1,4 +1,4 @@
-import biome.application.Common;
+import biome.utils.MathUtils;
 
 
 public class Common_Test 
@@ -10,7 +10,7 @@ public class Common_Test
 	
 	public static void testInterpolate()
 	{
-		System.out.println(Common.interpolate(0f, 10f, 0.3f));
+		System.out.println(MathUtils.interpolate(0f, 10f, 0.3f));
 	}
 
 }

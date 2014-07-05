@@ -6,6 +6,7 @@ import java.util.Set;
 import biome.application.Common;
 import biome.model.board.Board;
 import biome.model.organisms.Organism;
+import biome.utils.MathUtils;
 
 public class Reproduce extends Action
 {
@@ -37,8 +38,8 @@ public class Reproduce extends Action
 		
 		for (int i = 0; i < numProgeny; i++)
 		{
-			int rowDisp = Common.generateRandInt(radius) + 1;
-	        int columnDisp = Common.generateRandInt(radius) + 1;
+			int rowDisp = MathUtils.generateRandInt(radius) + 1;
+	        int columnDisp = MathUtils.generateRandInt(radius) + 1;
 	       
 	        int toRow = (org.getRow() + rowDisp) % buffer.getNumRows();
 	        int toColumn = (org.getColumn() + columnDisp) % buffer.getNumColumns();

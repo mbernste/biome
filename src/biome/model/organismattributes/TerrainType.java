@@ -4,6 +4,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
 import biome.application.Common;
+import biome.utils.MathUtils;
 import biome.view.View;
 
 public class TerrainType extends Attribute
@@ -24,9 +25,9 @@ public class TerrainType extends Attribute
 	{
 		TerrainType terrain = new TerrainType(this.value);
 		
-		if (Common.RAND.nextInt(mutationRate) == 0)
+		if (MathUtils.RAND.nextInt(mutationRate) == 0)
 		{
-			terrain.value = Common.RAND.nextInt(numValues);
+			terrain.value = MathUtils.RAND.nextInt(numValues);
 		}
 		
 		return terrain;

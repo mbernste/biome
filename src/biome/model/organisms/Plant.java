@@ -4,6 +4,7 @@ import biome.application.Common;
 import biome.controller.actions.Action;
 import biome.controller.behaviors.ReproduceBySeeds;
 import biome.model.board.Board;
+import biome.utils.MathUtils;
 import biome.view.OrganismView;
 
 public class Plant extends Organism
@@ -19,7 +20,7 @@ public class Plant extends Organism
 				
 		nutritionalValue = 3;
 		
-		numTurnsToReproduce = Common.PLANT_REPRODUCE_FREQUENCY + Common.RAND.nextInt(10);
+		numTurnsToReproduce = Common.PLANT_REPRODUCE_FREQUENCY + MathUtils.RAND.nextInt(10);
 		behaviors.add(new ReproduceBySeeds(NUM_PROGENY, RADIUS, numTurnsToReproduce));
 	}
 	

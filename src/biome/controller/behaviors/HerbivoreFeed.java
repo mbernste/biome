@@ -9,6 +9,7 @@ import biome.model.board.Board;
 import biome.model.organisms.Animal;
 import biome.model.organisms.Organism;
 import biome.model.organisms.Plant;
+import biome.utils.MathUtils;
 
 public class HerbivoreFeed extends Behavior 
 {		
@@ -75,7 +76,7 @@ public class HerbivoreFeed extends Behavior
 		        	buffer.getOrganism(bRow, bColumn) instanceof Plant &&
 		        	buffer.getSquare(bRow, bColumn).getTerrainType() == an.getTerrainType())
 		        {
-		        	float distance = Common.distance(orgLoc, plantLoc);
+		        	float distance = MathUtils.distance(orgLoc, plantLoc);
 		        	if (distance < closestDistance)
 		        	{		        		
 		        		toPlant = new Pair<Integer, Integer>(r - an.getRow(), c - an.getColumn());

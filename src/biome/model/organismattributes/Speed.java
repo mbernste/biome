@@ -1,6 +1,7 @@
 package biome.model.organismattributes;
 
 import biome.application.Common;
+import biome.utils.MathUtils;
 
 public class Speed extends Attribute 
 {
@@ -17,9 +18,9 @@ public class Speed extends Attribute
 	{
 		Speed speed = new Speed(this.value);
 		
-		if (Common.RAND.nextInt(mutationRate) == 0)
+		if (MathUtils.RAND.nextInt(mutationRate) == 0)
 		{
-			speed.value += Common.RAND.nextInt(MAX_INCREASE);
+			speed.value += MathUtils.RAND.nextInt(MAX_INCREASE);
 		}
 		
 		return speed;

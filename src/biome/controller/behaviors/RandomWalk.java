@@ -8,6 +8,7 @@ import biome.controller.actions.Move;
 import biome.model.board.Board;
 import biome.model.organisms.Animal;
 import biome.model.organisms.Organism;
+import biome.utils.MathUtils;
 import biome.view.OrganismView;
 
 public class RandomWalk extends Behavior
@@ -37,8 +38,8 @@ public class RandomWalk extends Behavior
 		{
 			// Random movement 
 			int speed = an.getSpeed();
-			moveRow = Common.generateRandInt(speed);
-			moveColumn = Common.generateRandInt(speed);
+			moveRow = MathUtils.generateRandInt(speed);
+			moveColumn = MathUtils.generateRandInt(speed);
 	        
 	        // Calculate board coordinates of destination
 			toRow = (an.getRow() + moveRow) % board.getNumRows();

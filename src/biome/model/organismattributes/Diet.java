@@ -4,6 +4,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
 import biome.application.Common;
+import biome.utils.MathUtils;
 import biome.view.View;
 
 /**
@@ -28,9 +29,9 @@ public class Diet extends Attribute
 	{
 		Diet diet = new Diet(this.value);
 		
-		if (Common.RAND.nextInt(mutationRate) == 0)
+		if (MathUtils.RAND.nextInt(mutationRate) == 0)
 		{
-			diet.value = Common.RAND.nextInt(numValues);
+			diet.value = MathUtils.RAND.nextInt(numValues);
 		}
 		
 		return diet;

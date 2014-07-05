@@ -9,6 +9,7 @@ import biome.model.board.Board;
 import biome.model.organismattributes.Diet;
 import biome.model.organisms.Animal;
 import biome.model.organisms.Organism;
+import biome.utils.MathUtils;
 
 public class CarnivoreFeed extends Behavior
 {
@@ -77,7 +78,7 @@ public class CarnivoreFeed extends Behavior
 		        	buffer.getOrganism(bRow, bColumn) instanceof Animal &&
 		        	((Animal) buffer.getOrganism(bRow, bColumn)).getDiet().getValue() == Diet.DIET_HERBIVORE)
 		        {
-		        	float distance = Common.distance(orgLoc, preyLoc);
+		        	float distance = MathUtils.distance(orgLoc, preyLoc);
 		        	if (distance < closestDistance)
 		        	{		        		
 		        		toPrey = new Pair<Integer, Integer>(r - an.getRow(), c - an.getColumn());

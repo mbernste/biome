@@ -4,6 +4,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 
 import biome.application.Common;
+import biome.utils.MathUtils;
 import biome.view.View;
 
 public class Vision extends Attribute 
@@ -25,9 +26,9 @@ public class Vision extends Attribute
 	{
 		Vision vision = new Vision(this.value);
 		
-		if (Common.RAND.nextInt(mutationRate) == 0)
+		if (MathUtils.RAND.nextInt(mutationRate) == 0)
 		{
-			vision.value += Common.generateRandInt(MAX_INCREASE);
+			vision.value += MathUtils.generateRandInt(MAX_INCREASE);
 		}
 		
 		return vision;

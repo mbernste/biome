@@ -18,6 +18,7 @@ import biome.model.board.Square;
 import biome.model.core.SimulationState;
 import biome.model.organisms.Animal;
 import biome.model.organisms.Organism;
+import biome.utils.MathUtils;
 
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
@@ -195,11 +196,11 @@ public class View extends SimpleApplication
 		Pair<Float, Float> origin = organismViewData.getOrigin(org);
 		Pair<Float, Float> destination = organismViewData.getDestination(org);
 		
-		float interpRow = Common.interpolate(origin.getFirst(), 
+		float interpRow = MathUtils.interpolate(origin.getFirst(), 
 											 destination.getFirst(), 
 											 interpVal);
 		
-		float interpCol = Common.interpolate(origin.getSecond(), 
+		float interpCol = MathUtils.interpolate(origin.getSecond(), 
 											 destination.getSecond(), 
 											 interpVal);
 

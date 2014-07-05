@@ -11,6 +11,7 @@ import biome.model.organismattributes.Diet;
 import biome.model.organisms.Animal;
 import biome.model.organisms.Organism;
 import biome.model.organisms.Plant;
+import biome.utils.MathUtils;
 
 public class Fear extends Behavior
 {
@@ -79,7 +80,7 @@ public class Fear extends Behavior
 		        	buffer.getOrganism(bRow, bColumn) instanceof Animal &&
 		        	((Animal) buffer.getOrganism(bRow, bColumn)).getDiet().getValue() == Diet.DIET_CARNIVORE)
 		        {
-		        	float distance = Common.distance(orgLoc, predLoc);
+		        	float distance = MathUtils.distance(orgLoc, predLoc);
 		        	if (distance < closestDistance)
 		        	{		        		
 		        		toPrey = new Pair<Integer, Integer>(r - an.getRow(), c - an.getColumn());
@@ -157,7 +158,7 @@ public class Fear extends Behavior
 		        	simState.getBuffer().getOrganism(bRow, bColumn) instanceof Animal &&
 		        	((Animal) simState.getBuffer().getOrganism(bRow, bColumn)).getDiet().getValue() == Diet.DIET_CARNIVORE)
 		        {
-		        	float distance = Common.distance(orgLoc, predLoc);
+		        	float distance = MathUtils.distance(orgLoc, predLoc);
 		        	if (distance < closestDistance)
 		        	{		        		
 		        		toPrey = new Pair<Integer, Integer>(r - animal.getRow(), c - animal.getColumn());

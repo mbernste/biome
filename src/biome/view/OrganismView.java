@@ -16,6 +16,7 @@ import biome.model.organisms.Animal;
 import biome.model.organisms.Organism;
 import biome.model.organisms.Plant;
 import biome.model.organisms.Tree;
+import biome.utils.MathUtils;
 
 import pair.Pair;
 
@@ -57,7 +58,7 @@ public class OrganismView
 	
 	public void calculateRotationAngle()
 	{
-		double distance = Common.distance(origin, destination);
+		double distance = MathUtils.distance(origin, destination);
 		
 		if (distance != 0)
 		{		
@@ -72,7 +73,7 @@ public class OrganismView
 			
 			Pair<Float, Float> unitCol = new Pair<Float, Float>(0f, 1f);
 			
-			if (Common.zCross(dirVec, unitCol) < 0)
+			if (MathUtils.zCross(dirVec, unitCol) < 0)
 			{
 				this.rotationAngle = (float) (2 * Math.PI) - this.rotationAngle;
 			}	
@@ -114,15 +115,15 @@ public class OrganismView
 		{
 			
 			yOffSet = 0.45f;
-			xOffSet = Common.RAND.nextFloat() * (Common.SQUARE_WIDTH / 2);
-			zOffSet = Common.RAND.nextFloat() * (Common.SQUARE_WIDTH / 2);
-			if (Common.RAND.nextBoolean()) xOffSet = -xOffSet;
-			if (Common.RAND.nextBoolean()) zOffSet = -zOffSet;
+			xOffSet = MathUtils.RAND.nextFloat() * (Common.SQUARE_WIDTH / 2);
+			zOffSet = MathUtils.RAND.nextFloat() * (Common.SQUARE_WIDTH / 2);
+			if (MathUtils.RAND.nextBoolean()) xOffSet = -xOffSet;
+			if (MathUtils.RAND.nextBoolean()) zOffSet = -zOffSet;
 			
 			Spatial plant = assetManager.loadModel("Models/plant.obj");
 			Spatial fruit = assetManager.loadModel("Models/fruit.obj");
 			
-			float scaleAmount = 1.5f + Common.RAND.nextFloat();
+			float scaleAmount = 1.5f + MathUtils.RAND.nextFloat();
 		
 			Material fruitMat = new Material(assetManager, Common.UNSHADED);
 			fruitMat.setTexture("ColorMap", assetManager.loadTexture("Textures/fruit.jpg")); 
@@ -136,23 +137,23 @@ public class OrganismView
 			node.attachChild(plant);
 			node.attachChild(fruit);
 			
-			float randScale = Common.RAND.nextInt(20) / 150f;
+			float randScale = MathUtils.RAND.nextInt(20) / 150f;
 			fruit.setLocalScale( 0.1f + randScale, 0.1f + randScale, 0.1f + randScale);
-			randScale = Common.RAND.nextInt(20) / 1000f;
+			randScale = MathUtils.RAND.nextInt(20) / 1000f;
 			plant.setLocalScale( 0.03f + randScale, 0.03f + randScale, 0.03f + randScale);
 			
-			float randAngle = (Common.RAND.nextFloat() + Common.RAND.nextInt(2)) * FastMath.PI;
+			float randAngle = (MathUtils.RAND.nextFloat() + MathUtils.RAND.nextInt(2)) * FastMath.PI;
 			node.setLocalRotation(new Quaternion().fromAngleAxis(randAngle, Vector3f.UNIT_Y));
 			
 		}
 		else if (org instanceof Tree)
 		{
-			if (Common.RAND.nextBoolean())
+			if (MathUtils.RAND.nextBoolean())
 			{
 				Spatial trunk = assetManager.loadModel("Models/tree3_trunk.obj");
 				Spatial leaves = assetManager.loadModel("Models/tree3_leaves.obj");
 				
-				float scaleAmount = 1.5f + Common.RAND.nextFloat();
+				float scaleAmount = 1.5f + MathUtils.RAND.nextFloat();
 				
 				Material barkMat = new Material(assetManager, Common.UNSHADED);
 				barkMat.setTexture("ColorMap", 
@@ -162,7 +163,7 @@ public class OrganismView
 				leavesMat.setTexture("ColorMap", 
 						assetManager.loadTexture("Textures/leaves.jpg")); 
 				
-			    float randAngle = (Common.RAND.nextFloat() + Common.RAND.nextInt(2)) * FastMath.PI;
+			    float randAngle = (MathUtils.RAND.nextFloat() + MathUtils.RAND.nextInt(2)) * FastMath.PI;
 				//trunk.setLocalRotation(new Quaternion().fromAngleAxis(randAngle, Vector3f.UNIT_Y));
 				//model.setLocalRotation(new Quaternion().fromAngleAxis(-FastMath.PI, Vector3f.UNIT_X));
 				
@@ -179,11 +180,11 @@ public class OrganismView
 				yOffSet = 5.0f;
 				
 				Spatial model = assetManager.loadModel("Models/treeObj.obj");
-				float scaleAmount = 1.5f + Common.RAND.nextFloat();
+				float scaleAmount = 1.5f + MathUtils.RAND.nextFloat();
 				
 				model.setLocalScale( scaleAmount, scaleAmount, scaleAmount);
 				
-			    float randAngle = (Common.RAND.nextFloat() + Common.RAND.nextInt(2)) * FastMath.PI;
+			    float randAngle = (MathUtils.RAND.nextFloat() + MathUtils.RAND.nextInt(2)) * FastMath.PI;
 				model.setLocalRotation(new Quaternion().fromAngleAxis(randAngle, Vector3f.UNIT_Y));
 				
 				node.attachChild(model);
