@@ -20,6 +20,11 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 	<property name="organismViewData" ref="theOrganismViewData"/>
 </bean>
 
+<bean id="theViewInitializer" class="biome.view.ViewInitializer" >
+	<constructor-arg  ref="theState" />    
+	<constructor-arg  ref="theView" />    
+</bean>
+
 
 
 </beans>
