@@ -34,7 +34,6 @@ public class Vision extends Attribute
 		return vision;
 	}
 	
-	@Override
 	public Node getNode()
 	{
 		Node node = new Node();

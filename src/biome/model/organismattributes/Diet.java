@@ -37,7 +37,6 @@ public class Diet extends Attribute
 		return diet;
 	}
 	
-	@Override
 	public Node getNode()
 	{	
 		Node node = new Node();

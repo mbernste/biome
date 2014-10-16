@@ -8,9 +8,7 @@ import biome.utils.MathUtils;
 import biome.view.View;
 
 public class TerrainType extends Attribute
-{
-	private final static String TENTACLES = "Models/animal/tentacles.obj";
-	
+{	
 	public static int LAND = 0;
 	public static int WATER = 1;
 	
@@ -32,24 +30,4 @@ public class TerrainType extends Attribute
 		
 		return terrain;
 	}
-	
-	@Override
-	public Node getNode()
-	{
-		Node node = new Node();
-		Spatial model = null;
-		
-		// TODO REFACTOR
-		View theView = (View) Common.BEAN_CONTEXT.getBean("theView");
-		
-		if (value == WATER)
- 		{
-			model = theView.getAssetManager().loadModel(TENTACLES);
-			model.setLocalScale(Common.SCALE, Common.SCALE, Common.SCALE);
-			node.attachChild(model);
-		}
-			
-		return node;
-	}
-
 }

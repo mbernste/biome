@@ -17,6 +17,7 @@ import biome.model.organisms.Organism;
 import biome.model.organisms.Plant;
 import biome.model.organisms.Tree;
 import biome.utils.MathUtils;
+import biome.view.organismattributes.TerrainTypeNodeGenerator;
 
 import pair.Pair;
 
@@ -41,7 +42,7 @@ public class OrganismView
 	 * The view singleton
 	 */
 	View theView;
-	
+		
 	public OrganismView(Organism org)
 	{
 		theView = (View) Common.BEAN_CONTEXT.getBean("theView");
@@ -215,7 +216,7 @@ public class OrganismView
 			bodyModel.setLocalScale(Common.SCALE, Common.SCALE, Common.SCALE);
 			
 			node.attachChild(bodyModel);
-			node.attachChild(an.getTerrain().getNode());
+			node.attachChild(TerrainTypeNodeGenerator.generateNode(an.getTerrain()));
 			node.attachChild(an.getDiet().getNode());
 			node.attachChild(an.getVision().getNode());
 			

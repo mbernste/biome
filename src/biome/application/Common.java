@@ -33,10 +33,10 @@ public class Common implements ApplicationContextAware
     /**
 	 * Board dimensions
 	 */
-	public final static int NUM_ROWS = 30;
-	public final static int NUM_COLS = 30; 
+	public final static int NUM_ROWS = 100;
+	public final static int NUM_COLS = 100; 
 	
-	public final static int NUM_TREES = 5;
+	public final static int NUM_TREES = 50;
 	public final static int NUM_PLANTS = 30;
 	public final static int NUM_CARNIVORES = 1;
 	public final static int NUM_HERBIVORES = 5;

@@ -29,8 +29,9 @@ public class Attribute
 		return null;
 	}
 	
+	/*
 	public Node getNode()
 	{
 		return null;
-	}
+	}*/
 }

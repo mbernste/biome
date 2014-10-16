@@ -28,10 +28,7 @@ public class Reproduce extends Action
 		super.performAction(board, buffer, org);
 		
 		System.out.println(org + " executing " + this);
-		
-		//view.resetOrganismViewData(org);
-		//org.resetView();
-		
+
         ActionResult result = new ActionResult();
 		Set<Organism> born = new HashSet<Organism>();
 		Set<Organism> dead = new HashSet<Organism>();
@@ -52,7 +49,6 @@ public class Reproduce extends Action
 	        {
 	        	Organism child = org.giveBirth();
 	        	buffer.setOrganism(toRow, toColumn, child);
-	        	//child.resetView();
 	        	born.add(child);
 	        }	        
 		}

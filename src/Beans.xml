@@ -25,6 +25,8 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 	<constructor-arg  ref="theView" />    
 </bean>
 
+<bean id="theTerrainTypeNodeGenerator" class="biome.view.organismattributes.TerrainTypeNodeGenerator" />
+
 
 
 </beans>

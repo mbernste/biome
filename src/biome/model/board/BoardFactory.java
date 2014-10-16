@@ -13,10 +13,8 @@ import biome.model.organisms.Plant;
 import biome.model.organisms.Tree;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 /**
  *
@@ -27,7 +25,7 @@ public class BoardFactory
 	/**
 	 * Number of iterations for cyclic cell automata
 	 */
-	private final static int CYCLIC_CELL_ITERATIONS = 100; 
+	private final static int CYCLIC_CELL_ITERATIONS = 50; 
 
 	/**
 	 * The board under construction

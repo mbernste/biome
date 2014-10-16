@@ -44,7 +44,6 @@ public class Trample extends Action
 			buffer.removeOrganism(toRow, toColumn);
 		}
 		
-		//this.view.resetOrganismViewData(org);
 		
        // setView(org);
         buffer.removeOrganism(org.getRow(), org.getColumn());

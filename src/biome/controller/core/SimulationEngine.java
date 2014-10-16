@@ -2,35 +2,25 @@
 package biome.controller.core;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 
 import biome.model.board.Board;
 import biome.model.board.BoardFactory;
-import biome.model.board.Square;
 import biome.model.core.SimulationState;
-import biome.model.organisms.Animal;
 import biome.model.organisms.Organism;
-import biome.model.organisms.Plant;
 import biome.application.Common;
 import biome.controller.actions.Action;
 import biome.controller.actions.ActionResult;
-import biome.view.OrganismViewData;
 
 /**
  * 
  * @author matthewbernstein
  */
 public class SimulationEngine 
-{
-	
-	
+{	
 	private SimulationState simState;
 	
 	private List<Organism> lastDead = new ArrayList<>();	
@@ -42,8 +32,6 @@ public class SimulationEngine
 		this.simState = simState;
 	}
 
-	
-	
 	public void initPopulation() 
 	{
 		BoardFactory bFactory = new BoardFactory();
